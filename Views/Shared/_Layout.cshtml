@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/normalize.css"/>
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ToDo.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/fonts/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <header>
+                <h1 class="logo">ToDo</h1>
+                </header>
+        </div>
+        <div class="nav-main-container">
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a asp-controller="Home" asp-action="Index">Заметки</a></li>
+                    <li><a asp-controller="Sections" asp-action="Index">Разделы</a></li>
+                    <li><a asp-controller="Trash" asp-action="Index">Корзина</a></li>
+                </ul>
+            </nav>
+            <main class="main">
+                @RenderBody()
+            </main>
+        </div>
+        </div>
+    <footer>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/script.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

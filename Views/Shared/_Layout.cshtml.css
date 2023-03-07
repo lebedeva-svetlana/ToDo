@@ -1,0 +1,42 @@
+﻿.header {
+    background: white;
+    border-bottom: 1px solid #909090;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.logo {
+    font-size: 1.1em;
+    margin: 10px 0 10px 15px;
+}
+
+/*!!!*/
+.container {
+}
+
+.nav-main-container {
+    display: flex;
+    padding-top: 40px;
+}
+
+.nav {
+    border-right: 1px solid #909090;
+    height: 100vh;
+    min-width: 150px;
+}
+
+.nav-list {
+    list-style-type: none;
+    padding-left: 15px;
+    position: fixed;
+}
+
+    .nav-list > li {
+        font-size: 1.1em;
+    }
+
+.main {
+    margin: 20px;
+    width: 95%;
+}

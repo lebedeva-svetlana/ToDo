@@ -1,0 +1,52 @@
+﻿@model NotesViewModel
+
+@{
+    ViewData["Title"] = "Корзина | ToDo";
+}
+
+<div class="notes">
+    @for (int i = 0; i < @Model.Notes.Count(); ++i)
+    {
+        <div class="note">
+            <input type="hidden" value="@Model.Notes[i].Id" class="note-id">
+            <input type="checkbox" asp-for="@Model.Notes[i].IsDone" class="note-is-done">
+            <div class="note-container">
+                <div class="note-texts note-title">@Model.Notes[i].Title</div>
+                <div class="note-texts note-text">@Model.Notes[i].Text</div>
+            </div>
+            <div class="note-options">
+                <div class="note-options-visibility">
+                    <div class="edit icon-button">
+                        <button class="icon-button icon">
+                            <span class="fa fa-pencil"></span>
+                        </button>
+                    </div>
+                    <form asp-action="Delete">
+                        <input type="hidden" value="@Model.Notes[i].Id" asp-for="@Model.ActiveNote.Id" />
+                        <div class="icon-button-container">
+                            <input type="submit" class="icon-button abs" value="" />
+                            <div class="icon abs">
+                                <span class="fa fa-trash-o"></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="overlay"></div>
+
+<form asp-controller="Home">
+    <input type="hidden" class="active-note-id" asp-for="@Model.ActiveNote.Id" />
+    <div class="active-note-container">
+        <textarea class="active-note active-note-title" asp-for="@Model.ActiveNote.Title"></textarea>
+        <textarea class="active-note active-note-text" asp-for="@Model.ActiveNote.Text"></textarea>
+        <div class="edit-controls">
+            <input class="active-note-button cancel-button" type="button" value="Отменить" />
+            <input asp-action="Edit" class="active-note-button active-note-submit-edit" type="submit" value="Сохранить" />
+            <input asp-action="Create" class="active-note-button active-note-submit-create" type="submit" value="Добавить" />
+        </div>
+    </div>
+</form>
